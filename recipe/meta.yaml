@@ -12,20 +12,21 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install ./common -vv
-  number: 2
+  number: 3
   script_env:
    - RELEASE=1
 
 requirements:
   host:
-    - python >=3.7,<3.10
+    - python >=3.8,<3.11
     - pip
+  # see https://github.com/autogluon/autogluon/blob/master/core/src/autogluon/core/_setup_utils.py
   run:
-    - python >=3.7,<3.10
-    - numpy <1.24,>=1.21
-    - pandas !=1.4.0,<1.6,>=1.2.5
-    - boto3
-    - psutil <6,>=5.7.3
+    - python >=3.8,<3.11
+    - numpy >=1.21,<1.27
+    - pandas >=1.4.1,<1.6
+    - boto3 >=1.10,<2
+    - psutil >=5.7.3,<6
     - setuptools
 
 test:
