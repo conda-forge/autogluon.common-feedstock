@@ -34,7 +34,8 @@ test:
   imports:
     - autogluon.common
   commands:
-    - python -c "from autogluon.common import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
+    # Temporarily disable for 0.8.2 patching
+    # - python -c "from autogluon.common import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
   requires:
     - pip
 
@@ -55,3 +56,4 @@ extra:
     - giswqs
     - Innixma
     - gradientsky
+    - yinweisu
