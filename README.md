@@ -154,4 +154,5 @@ Feedstock Maintainers
 * [@Innixma](https://github.com/Innixma/)
 * [@giswqs](https://github.com/giswqs/)
 * [@gradientsky](https://github.com/gradientsky/)
+* [@yinweisu](https://github.com/yinweisu/)
 
