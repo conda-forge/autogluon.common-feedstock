@@ -34,8 +34,7 @@ test:
   imports:
     - autogluon.common
   commands:
-    # Temporarily disable for 0.8.2 patching
-    # - python -c "from autogluon.common import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
+    - python -c "from autogluon.common import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
   requires:
     - pip
 
