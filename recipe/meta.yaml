@@ -1,33 +1,34 @@
 {% set name = "autogluon.common" %}
-{% set version = "0.8.2" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/autogluon/autogluon/archive/7dead13ee1efdffe437e0dc0b83ba08eb9dcf6c7.tar.gz
-  sha256: 5cf3c86a6cac944fd070c17288753788a450eb2732b237d57686546d472f0ba5
+  url: https://github.com/autogluon/autogluon/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: a4d950b5c796a835c690d25dc2406ab35062a973ed70685f5b8f1e850b780bbc
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install ./common -vv
-  number: 4
+  number: 0
   script_env:
     - RELEASE=1
 
 requirements:
   host:
-    - python >=3.8,<3.11
+    - python >=3.8,<3.12
     - pip
   # see deps in https://github.com/autogluon/autogluon/blob/master/common/setup.py
   # version bounds are defined in https://github.com/autogluon/autogluon/blob/master/core/src/autogluon/core/_setup_utils.py
   run:
-    - python >=3.8,<3.11
-    - numpy >=1.21,<1.27
-    - pandas >=1.4.1,<2.2
+    - python >=3.8,<3.12
+    - numpy >=1.21,<1.29
+    - pandas >=2.0.0,<2.2.0
     - boto3 >=1.10,<2
     - psutil >=5.7.3,<6
+    - tqdm >=4.38,<5
     - setuptools
 
 test:
@@ -56,3 +57,4 @@ extra:
     - Innixma
     - gradientsky
     - yinweisu
+    - suzhoum  
