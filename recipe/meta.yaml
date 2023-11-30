@@ -30,6 +30,7 @@ requirements:
     - psutil >=5.7.3,<6
     - tqdm >=4.38,<5
     - setuptools
+    - packaging
 
 test:
   imports:
