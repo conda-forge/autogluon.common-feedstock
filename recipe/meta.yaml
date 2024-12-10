@@ -1,33 +1,33 @@
 {% set name = "autogluon.common" %}
-{% set version = "1.1.1" %}
+{% set version = "1.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://autogluon.s3.us-west-2.amazonaws.com/tarballs/1.1.1_patch/tarball.tar.gz 
-  sha256: e8a23ffc2941e36cf239c472d1fba00a5f660c49a7035c3e6ef1a3a28dd284ea 
+  url: https://autogluon.s3.us-west-2.amazonaws.com/tarballs/1.2.0_patch/tarball.tar.gz 
+  sha256: ac72aa0430b711b5eb540b01064a505d42333738bc8b1cd44649249183a647d1
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install ./common -vv
-  number: 3
+  number: 1
   script_env:
     - RELEASE=1
 
 requirements:
   host:
-    - python >=3.8,<3.13
+    - python >=3.9,<3.13
     - pip
   # see deps in https://github.com/autogluon/autogluon/blob/master/common/setup.py
   # version bounds are defined in https://github.com/autogluon/autogluon/blob/master/core/src/autogluon/core/_setup_utils.py
   run:
-    - python >=3.8,<3.13
-    - numpy <1.29,>=1.21
+    - python >=3.9,<3.13
+    - numpy <2.1.4,>=1.21
     - pandas <2.3.0,>=2.0.0
     - boto3 <2,>=1.10
-    - psutil <6,>=5.7.3
+    - psutil <7.0.0,>=5.7.3
     - tqdm <5,>=4.38
     - setuptools
     - packaging
@@ -36,7 +36,7 @@ test:
   imports:
     - autogluon.common
   commands:
-    - python -c "from autogluon.common import __version__ as v; assert v == '{{ version }}', f'{v} != {{ version }}'"
+    - python -c "from autogluon.common import __version__ as v; from packaging.version import parse; expected = '{{ version }}'; assert parse(v) == parse(expected), f'{v} != {expected}'" 
   requires:
     - pip
 
@@ -58,4 +58,4 @@ extra:
     - tonyhoo
     - giswqs
     - Innixma
-    - prateekdesai04 
+    - prateekdesai04
