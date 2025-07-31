@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install ./common -vv
-  number: 0
+  number: 1
   script_env:
     - RELEASE=1
 
@@ -31,7 +31,9 @@ requirements:
     - tqdm <5,>=4.38
     - requests
     - joblib <1.7,>=1.2
-    - pyarrow <21.0.0,>=7.0.0
+    # Constrain pyarrow to avoid ABI incompatibility with libabseil
+    # pyarrow >=19.0.0 requires newer libabseil that causes symbol conflicts
+    - pyarrow >19.0.0,<21.0.0
     - setuptools
     - packaging
 
