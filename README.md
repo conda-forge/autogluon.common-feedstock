@@ -155,4 +155,5 @@ Feedstock Maintainers
 * [@prateekdesai04](https://github.com/prateekdesai04/)
 * [@suzhoum](https://github.com/suzhoum/)
 * [@tonyhoo](https://github.com/tonyhoo/)
+* [@shchur](https://github.com/shchur/)
 
