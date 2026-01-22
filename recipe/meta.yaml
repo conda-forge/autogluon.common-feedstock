@@ -1,18 +1,18 @@
 {% set name = "autogluon.common" %}
-{% set version = "1.4.0" %}
+{% set version = "1.5.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/autogluon/autogluon/archive/refs/tags/v{{ version }}.tar.gz 
-  sha256: 42e4838bb95328cedb54a9d094072068d8ce1e610a1154f91190b3670011561b
+  url: https://github.com/autogluon/autogluon/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 133ceb769cebce26255f379c129b58acacab2424a692b7ee81f02d78bbb228cb
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install ./common -vv
-  number: 1
+  number: 0
   script_env:
     - RELEASE=1
 
@@ -23,11 +23,11 @@ requirements:
   # see deps in https://github.com/autogluon/autogluon/blob/master/common/setup.py
   # version bounds are defined in https://github.com/autogluon/autogluon/blob/master/core/src/autogluon/core/_setup_utils.py
   run:
-    - python >={{ python_min }},<3.13
+    - python >={{ python_min }},<3.14
     - numpy <2.4.0,>=1.25.0
     - pandas <2.4.0,>=2.0.0
     - boto3 <2,>=1.10
-    - psutil <7.1.0,>=5.7.3
+    - psutil <7.2.0,>=5.7.3
     - tqdm <5,>=4.38
     - requests
     - joblib <1.7,>=1.2
@@ -50,10 +50,10 @@ about:
   home: https://pypi.org/project/autogluon.common
   summary: AutoML for Image, Text, and Tabular Data
   description: |
-    AutoGluon automates machine learning tasks enabling you to easily achieve strong 
-    predictive performance in your applications. With just a few lines of code, you 
-    can train and deploy high-accuracy machine learning and deep learning models on 
-    image, text, time series, and tabular data.  
+    AutoGluon automates machine learning tasks enabling you to easily achieve strong
+    predictive performance in your applications. With just a few lines of code, you
+    can train and deploy high-accuracy machine learning and deep learning models on
+    image, text, time series, and tabular data.
   dev_url: https://github.com/autogluon/autogluon/
   license: Apache-2.0
   license_file: LICENSE
