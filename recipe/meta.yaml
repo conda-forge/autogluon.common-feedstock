@@ -31,7 +31,7 @@ requirements:
     - tqdm <5,>=4.38
     - requests
     - joblib <1.7,>=1.2
-    - pyarrow >= 21.0.0
+    - pyarrow >=21.0.0
     - setuptools
     - packaging
 
